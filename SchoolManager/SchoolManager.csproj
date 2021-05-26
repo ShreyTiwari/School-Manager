@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <StartupObject>SchoolManager.Interface</StartupObject>
+    <Authors>Shrey Tiwari</Authors>
+    <Company />
+    <Product>School Manager Console Application</Product>
+    <Copyright>2021</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Description>Test console application developed to learn the C# language and its features.</Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Helper\" />
+    <Folder Include="Tests\" />
+    <Folder Include="Root\" />
+  </ItemGroup>
+
+</Project>
