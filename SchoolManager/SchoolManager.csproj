@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <StartupObject>SchoolManager.Interface</StartupObject>
+    <StartupObject>SchoolManager.Program</StartupObject>
     <Authors>Shrey Tiwari</Authors>
     <Company />
     <Product>School Manager Console Application</Product>
@@ -16,7 +16,6 @@
   <ItemGroup>
     <Folder Include="Helper\" />
     <Folder Include="Tests\" />
-    <Folder Include="Root\" />
   </ItemGroup>
 
 </Project>
