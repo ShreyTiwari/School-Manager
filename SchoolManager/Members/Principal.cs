@@ -23,6 +23,8 @@ namespace SchoolManager
 
         public void Pay()
         {
+            Util.NetworkDelay.SimulateNetworkDelay();
+
             balance += income;
             Console.WriteLine("Paid Principal: {0}. Total income: {1}", Name, balance);
         }

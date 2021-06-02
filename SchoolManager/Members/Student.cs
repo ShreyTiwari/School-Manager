@@ -11,11 +11,11 @@ namespace SchoolManager
 
         public Student() { }
 
-        public Student(string name, string address, int phonenum, int grade = 0)
+        public Student(string name, string address, int phoneNum, int grade = 0)
         {
             Name = name;
             Address = address;
-            Phone = phonenum;
+            Phone = phoneNum;
             this.grade = grade;
         }
 

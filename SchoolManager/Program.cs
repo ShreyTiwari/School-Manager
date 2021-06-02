@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SchoolManager
 {
@@ -112,23 +113,47 @@ namespace SchoolManager
             Console.WriteLine("\nPlease note that the students cannot be paid.");
             int memberType = AcceptMemberType();
 
+            Console.WriteLine("\nPayments in progress...");
+
             switch (memberType)
             {
                 case 1:
                     principal.Pay();
                     break;
                 case 2:
+                    List<Task> payments = new List<Task>();
+                    
                     foreach (Teacher teacher in teachers)
-                        teacher.Pay();
+                        payments.Add(new Task(teacher.Pay));
+
+                    foreach (Task payment in payments)
+                        payment.Start();
+
+                    foreach (Task payment in payments)
+                        payment.Wait();
+
                     break;
                 default:
                     Console.WriteLine("Invalid input. Terminating operation.");
                     break;
             }
+
+            Console.WriteLine("Payments completed.\n");
+        }
+
+        static void addData()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                students.Add(new Student(i.ToString(), i.ToString(), i));
+                teachers.Add(new Teacher(i.ToString(), i.ToString(), i));
+            }
         }
 
         static void Main(string[] args)
         {
+            addData();
+
             Console.WriteLine("-------------- Welcome ---------------\n");
 
             Console.WriteLine("Please enter the Princpals information.");
