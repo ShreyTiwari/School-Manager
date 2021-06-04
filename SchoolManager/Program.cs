@@ -124,13 +124,13 @@ namespace SchoolManager
                     List<Task> payments = new List<Task>();
 
                     foreach (Teacher teacher in teachers)
-                        payments.Add(new Task(teacher.Pay));
-
-                    foreach (Task payment in payments)
+                    {
+                        Task payment = new Task(teacher.Pay);
+                        payments.Add(payment);
                         payment.Start();
+                    }
 
-                    foreach (Task payment in payments)
-                        payment.Wait();
+                    Task.WaitAll(payments.ToArray());
 
                     break;
                 default:
