@@ -122,7 +122,7 @@ namespace SchoolManager
                     break;
                 case 2:
                     List<Task> payments = new List<Task>();
-                    
+
                     foreach (Teacher teacher in teachers)
                         payments.Add(new Task(teacher.Pay));
 

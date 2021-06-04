@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Util.Console" Collapsed="true">
+    <Position X="11.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Helper\ConsoleHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Util.NetworkDelay" Collapsed="true">
+    <Position X="13" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAgAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\NetworkDelay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SchoolManager.Principal" Collapsed="true">
+    <Position X="8.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAIAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Members\Principal.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SchoolManager.Student" Collapsed="true">
+    <Position X="4.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAQAAAAEAAAA=</HashCode>
+      <FileName>Members\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SchoolManager.Teacher" Collapsed="true">
+    <Position X="6.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAIAAAAAIAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Members\Teacher.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SchoolManager.SchoolMember" Collapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAiAAAAIAAAAAA=</HashCode>
+      <FileName>Root\SchoolMember.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SchoolManager.Program" Collapsed="true">
+    <Position X="6.5" Y="7" Width="1.5" />
+    <Members>
+      <Method Name="addData" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="SchoolManager.Program.SchoolMemberType">
+        <TypeIdentifier>
+          <NewMemberFileName>Program.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAYAgAAAAAAAAgAgAAAAAQAAAAAAAAAAAIKABIACEAI=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="principal" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="students" />
+      <Field Name="teachers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Interface Name="SchoolManager.IPayroll" Collapsed="true">
+    <Position X="11" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Root\Payroll.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
