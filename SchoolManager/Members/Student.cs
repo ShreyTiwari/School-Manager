@@ -1,13 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace SchoolManager
 {
     class Student : SchoolMember
     {
         private int grade;
+        public int Grade
+        {
+            get { return grade; }
+            set { grade = value; }
+        }
 
         public Student() { }
 
@@ -17,13 +19,7 @@ namespace SchoolManager
             Address = address;
             Phone = phoneNum;
             this.grade = grade;
-        }
-
-        public int Grade
-        {
-            get { return grade; }
-            set { grade = value; }
-        }
+        }     
 
         public void display()
         {

@@ -8,7 +8,7 @@ namespace SchoolManager
     {
         static List<Student> students = new List<Student>();
         static List<Teacher> teachers = new List<Teacher>();
-        static Principal principal= new Principal();
+        static Principal principal = new Principal();
 
         enum SchoolMemberType
         {
@@ -107,7 +107,7 @@ namespace SchoolManager
                     break;
             }
         }
-        
+
         static void Pay()
         {
             Console.WriteLine("\nPlease note that the students cannot be paid.");
@@ -160,9 +160,9 @@ namespace SchoolManager
             AddPrincpal();
 
             bool flag = true;
-            while(flag)
+            while (flag)
             {
-                
+
                 int choice = AcceptChoices();
                 switch (choice)
                 {
