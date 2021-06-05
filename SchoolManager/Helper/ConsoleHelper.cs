@@ -1,6 +1,6 @@
 ﻿namespace Util
 {
-    class Console
+    public class Console
     {
         static public string AskQuestion(string question)
         {

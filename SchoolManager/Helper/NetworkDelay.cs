@@ -5,13 +5,23 @@ namespace Util
 {
     public class NetworkDelay
     {
-        public const int MinDelay = 1000;
-        public const int MaxDelay = 5000;
+        private const int minDelay = 1000;
+        private const int maxDelay = 5000;
+
+        public static int MinDelay
+        {
+            get { return minDelay; }
+        }
+
+        public static int MaxDelay
+        {
+            get { return maxDelay; }
+        }
 
         static public void SimulateNetworkDelay()
         {
             Random rnd = new Random();
-            Thread.Sleep(rnd.Next(MinDelay, MaxDelay));
+            Thread.Sleep(rnd.Next(minDelay, maxDelay));
         }
     }
 }

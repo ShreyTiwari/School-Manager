@@ -19,7 +19,7 @@ namespace SchoolManager
             Address = address;
             Phone = phoneNum;
             this.grade = grade;
-        }     
+        }
 
         public void display()
         {
