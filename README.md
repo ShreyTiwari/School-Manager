@@ -15,7 +15,6 @@ Additionally, the "School Manager" project tries to incorporate other important 
 - Unit Testing
 - Class Diagrams
 
-<br />
 
 ## Useful Resources
 
