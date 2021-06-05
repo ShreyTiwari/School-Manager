@@ -2,7 +2,7 @@
 
 namespace SchoolManager
 {
-    class Teacher : SchoolMember, IPayroll
+    public class Teacher : SchoolMember, IPayroll
     {
         public string Subject;
         private int income;

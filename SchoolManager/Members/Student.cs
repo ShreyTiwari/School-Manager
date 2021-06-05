@@ -2,7 +2,7 @@
 
 namespace SchoolManager
 {
-    class Student : SchoolMember
+    public class Student : SchoolMember
     {
         private int grade;
         public int Grade
@@ -11,9 +11,7 @@ namespace SchoolManager
             set { grade = value; }
         }
 
-        public Student() { }
-
-        public Student(string name, string address, int phoneNum, int grade = 0)
+        public Student(string name = "", string address = "", int phoneNum = 0, int grade = 0)
         {
             Name = name;
             Address = address;

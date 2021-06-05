@@ -1,8 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Diagnostics;
 using System.IO;
-using Util;
 
 namespace SchoolManager.UnitTests
 {
@@ -11,11 +9,11 @@ namespace SchoolManager.UnitTests
     {
         [TestMethod]
         public void Test_StringEnteredIsStringReceived_AskQuestion()
-        {   
+        {
             // Arrange
             string expectedQuestionAsked = "Enter Something";
             string expectedResultReceived = "Test Input String";
-            
+
             using (StringWriter sw = new StringWriter())
             {
                 using (StringReader sr = new StringReader(expectedResultReceived))
@@ -77,7 +75,7 @@ namespace SchoolManager.UnitTests
                     int actualResultReceived = Util.Console.AskQuestionInt(expectedQuestionAsked);
 
                     // Assert
-                    Assert.AreEqual(expectedQuestionAsked+expectedErrorMessage, sw.ToString());
+                    Assert.AreEqual(expectedQuestionAsked + expectedErrorMessage, sw.ToString());
                     Assert.AreEqual(expectedResultReceived, actualResultReceived.ToString());
                 }
             }

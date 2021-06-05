@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 
 namespace SchoolManager
 {
-    class Program
+    public class Program
     {
-        static List<Student> students = new List<Student>();
-        static List<Teacher> teachers = new List<Teacher>();
-        static Principal principal = new Principal();
+        static public List<Student> Students = new List<Student>();
+        static public List<Teacher> Teachers = new List<Teacher>();
+        static public Principal Principal = new Principal();
 
         enum SchoolMemberType
         {
@@ -17,7 +17,7 @@ namespace SchoolManager
             typeStudent
         }
 
-        static private SchoolMember AcceptAttributes()
+        public static SchoolMember AcceptAttributes()
         {
             SchoolMember member = new SchoolMember();
             member.Name = Util.Console.AskQuestion("Enter name: ");
@@ -27,54 +27,54 @@ namespace SchoolManager
             return member;
         }
 
-        static int AcceptChoices()
+        private static int acceptChoices()
         {
             return Util.Console.AskQuestionInt("\n1. Add\n2. Display\n3. Pay\nPlease enter the member type: ");
         }
 
-        static int AcceptMemberType()
+        private static int acceptMemberType()
         {
             return Util.Console.AskQuestionInt("\n1. Principal\n2. Teacher\n3. Student\nPlease enter the member type: ");
         }
 
-        static void AddPrincpal()
+        public static void AddPrincpal()
         {
             SchoolMember member = AcceptAttributes();
-            principal.Name = member.Name;
-            principal.Address = member.Address;
-            principal.Phone = member.Phone;
+            Principal.Name = member.Name;
+            Principal.Address = member.Address;
+            Principal.Phone = member.Phone;
         }
 
-        static void AddStudent()
+        private static void addStudent()
         {
             SchoolMember member = AcceptAttributes();
             Student newStudent = new Student(member.Name, member.Address, member.Phone);
             newStudent.Grade = Util.Console.AskQuestionInt("Enter grade: ");
 
-            students.Add(newStudent);
+            Students.Add(newStudent);
         }
 
-        static void AddTeacher()
+        private static void addTeacher()
         {
             SchoolMember member = AcceptAttributes();
             Teacher newTeacher = new Teacher(member.Name, member.Address, member.Phone);
             newTeacher.Subject = Util.Console.AskQuestion("Enter subject: ");
 
-            teachers.Add(newTeacher);
+            Teachers.Add(newTeacher);
         }
 
-        static void Add()
+        public static void Add()
         {
             Console.WriteLine("\nPlease note that the Principal details cannot be added or modified now.");
-            int memberType = AcceptMemberType();
+            int memberType = acceptMemberType();
 
             switch (memberType)
             {
                 case 2:
-                    AddTeacher();
+                    addTeacher();
                     break;
                 case 3:
-                    AddStudent();
+                    addStudent();
                     break;
                 default:
                     Console.WriteLine("Invalid input. Terminating operation.");
@@ -82,24 +82,24 @@ namespace SchoolManager
             }
         }
 
-        static void Display()
+        private static void display()
         {
-            int memberType = AcceptMemberType();
+            int memberType = acceptMemberType();
 
             switch (memberType)
             {
                 case 1:
                     Console.WriteLine("\nThe Principal's details are:");
-                    principal.display();
+                    Principal.display();
                     break;
                 case 2:
                     Console.WriteLine("\nThe teachers are:");
-                    foreach (Teacher teacher in teachers)
+                    foreach (Teacher teacher in Teachers)
                         teacher.display();
                     break;
                 case 3:
                     Console.WriteLine("\nThe students are:");
-                    foreach (Student student in students)
+                    foreach (Student student in Students)
                         student.display();
                     break;
                 default:
@@ -108,22 +108,22 @@ namespace SchoolManager
             }
         }
 
-        static void Pay()
+        public static void Pay()
         {
             Console.WriteLine("\nPlease note that the students cannot be paid.");
-            int memberType = AcceptMemberType();
+            int memberType = acceptMemberType();
 
             Console.WriteLine("\nPayments in progress...");
 
             switch (memberType)
             {
                 case 1:
-                    principal.Pay();
+                    Principal.Pay();
                     break;
                 case 2:
                     List<Task> payments = new List<Task>();
 
-                    foreach (Teacher teacher in teachers)
+                    foreach (Teacher teacher in Teachers)
                     {
                         Task payment = new Task(teacher.Pay);
                         payments.Add(payment);
@@ -141,17 +141,18 @@ namespace SchoolManager
             Console.WriteLine("Payments completed.\n");
         }
 
-        static void addData()
+        private static void addData()
         {
             for (int i = 0; i < 10; i++)
             {
-                students.Add(new Student(i.ToString(), i.ToString(), i));
-                teachers.Add(new Teacher(i.ToString(), i.ToString(), i));
+                Students.Add(new Student(i.ToString(), i.ToString(), i));
+                Teachers.Add(new Teacher(i.ToString(), i.ToString(), i));
             }
         }
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            // Just for manual testing purposes.
             addData();
 
             Console.WriteLine("-------------- Welcome ---------------\n");
@@ -163,14 +164,14 @@ namespace SchoolManager
             while (flag)
             {
 
-                int choice = AcceptChoices();
+                int choice = acceptChoices();
                 switch (choice)
                 {
                     case 1:
                         Add();
                         break;
                     case 2:
-                        Display();
+                        display();
                         break;
                     case 3:
                         Pay();
