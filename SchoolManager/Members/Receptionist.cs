@@ -1,19 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SchoolManager
 {
-    public class Principal : SchoolMember, IPayroll
+    public class Receptionist : SchoolMember, IPayroll
     {
         private int income;
         private int balance;
 
-        public Principal(int income = 50000)
+        public Receptionist(int income = 10000) 
         {
             this.income = income;
             balance = 0;
         }
 
-        public Principal(string name, string address, int phoneNum, int income = 50000)
+        public Receptionist(string name, string address, int phoneNum, int income = 10000)
         {
             Name = name;
             Address = address;
@@ -29,7 +33,7 @@ namespace SchoolManager
 
         public void Pay()
         {
-            Util.NetworkDelay.PayEntity("Principal", Name, ref balance, income);
+            Util.NetworkDelay.PayEntity("Receptionist", Name, ref balance, income);
         }
     }
 }

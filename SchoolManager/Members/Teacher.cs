@@ -25,10 +25,7 @@ namespace SchoolManager
 
         public void Pay()
         {
-            Util.NetworkDelay.SimulateNetworkDelay();
-
-            balance += income;
-            Console.WriteLine("Paid Teacher: {0}. Total income: {1}", Name, balance);
+            Util.NetworkDelay.PayEntity("Teacher", Name, ref balance, income);
         }
     }
 }

@@ -9,12 +9,14 @@ namespace SchoolManager
         static public List<Student> Students = new List<Student>();
         static public List<Teacher> Teachers = new List<Teacher>();
         static public Principal Principal = new Principal();
+        static public Receptionist Receptionist = new Receptionist();
 
         enum SchoolMemberType
         {
             typePrincipal,
             typeTeacher,
-            typeStudent
+            typeStudent,
+            typeReceptionist
         }
 
         public static SchoolMember AcceptAttributes()
@@ -34,7 +36,7 @@ namespace SchoolManager
 
         private static int acceptMemberType()
         {
-            return Util.Console.AskQuestionInt("\n1. Principal\n2. Teacher\n3. Student\nPlease enter the member type: ");
+            return Util.Console.AskQuestionInt("\n1. Principal\n2. Teacher\n3. Student\n4. Receptionist\nPlease enter the member type: ");
         }
 
         public static void AddPrincpal()
@@ -102,6 +104,10 @@ namespace SchoolManager
                     foreach (Student student in Students)
                         student.display();
                     break;
+                case 4:
+                    Console.WriteLine("\nThe Receptionist's details are:");
+                    Receptionist.display();
+                    break;
                 default:
                     Console.WriteLine("Invalid input. Terminating operation.");
                     break;
@@ -133,6 +139,9 @@ namespace SchoolManager
                     Task.WaitAll(payments.ToArray());
 
                     break;
+                case 4:
+                    Receptionist.Pay();
+                    break;
                 default:
                     Console.WriteLine("Invalid input. Terminating operation.");
                     break;
@@ -143,6 +152,9 @@ namespace SchoolManager
 
         private static void addData()
         {
+            Receptionist = new Receptionist("Receptionist", "address", 123);
+            Principal = new Principal("Principal", "address", 123);
+
             for (int i = 0; i < 10; i++)
             {
                 Students.Add(new Student(i.ToString(), i.ToString(), i));
@@ -157,8 +169,8 @@ namespace SchoolManager
 
             Console.WriteLine("-------------- Welcome ---------------\n");
 
-            Console.WriteLine("Please enter the Princpals information.");
-            AddPrincpal();
+            //Console.WriteLine("Please enter the Princpals information.");
+            //AddPrincpal();
 
             bool flag = true;
             while (flag)
