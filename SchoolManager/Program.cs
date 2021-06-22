@@ -31,7 +31,7 @@ namespace SchoolManager
 
         private static int acceptChoices()
         {
-            return Util.Console.AskQuestionInt("\n1. Add\n2. Display\n3. Pay\nPlease enter the member type: ");
+            return Util.Console.AskQuestionInt("\n1. Add\n2. Display\n3. Pay\n4. Raise Complaint\nPlease enter the member type: ");
         }
 
         private static int acceptMemberType()
@@ -106,7 +106,7 @@ namespace SchoolManager
                     break;
                 case 4:
                     Console.WriteLine("\nThe Receptionist's details are:");
-                    Receptionist.display();
+                    Receptionist.Display();
                     break;
                 default:
                     Console.WriteLine("Invalid input. Terminating operation.");
@@ -150,9 +150,23 @@ namespace SchoolManager
             Console.WriteLine("Payments completed.\n");
         }
 
+        public static void RaiseComplaint()
+        {
+            Receptionist.HandleComplaint();
+        }
+
+        private static void handleComplaintRaised(object sender, Complaint complaint)
+        {
+            Console.WriteLine("\nThis is a confirmation that we received your complaint. The details are as follows:");
+            Console.WriteLine($"---------\nComplaint Time: {complaint.ComplaintTime.ToLongDateString()}, {complaint.ComplaintTime.ToLongTimeString()}");
+            Console.WriteLine($"Complaint Raised: {complaint.ComplaintRaised}\n---------");
+        }
+
         private static void addData()
         {
             Receptionist = new Receptionist("Receptionist", "address", 123);
+            Receptionist.ComplaintRaised += handleComplaintRaised;
+
             Principal = new Principal("Principal", "address", 123);
 
             for (int i = 0; i < 10; i++)
@@ -187,6 +201,9 @@ namespace SchoolManager
                         break;
                     case 3:
                         Pay();
+                        break;
+                    case 4:
+                        RaiseComplaint();
                         break;
                     default:
                         flag = false;
