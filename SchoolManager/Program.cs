@@ -13,7 +13,7 @@ namespace SchoolManager
 
         enum SchoolMemberType
         {
-            typePrincipal,
+            typePrincipal = 1,
             typeTeacher,
             typeStudent,
             typeReceptionist
@@ -36,7 +36,8 @@ namespace SchoolManager
 
         private static int acceptMemberType()
         {
-            return Util.Console.AskQuestionInt("\n1. Principal\n2. Teacher\n3. Student\n4. Receptionist\nPlease enter the member type: ");
+            int x = Util.Console.AskQuestionInt("\n1. Principal\n2. Teacher\n3. Student\n4. Receptionist\nPlease enter the member type: ");
+            return Enum.IsDefined(typeof(SchoolMemberType), x) ? x : -1;
         }
 
         public static void AddPrincpal()
@@ -67,7 +68,7 @@ namespace SchoolManager
 
         public static void Add()
         {
-            Console.WriteLine("\nPlease note that the Principal details cannot be added or modified now.");
+            Console.WriteLine("\nPlease note that the Principal/Receptionist details cannot be added or modified now.");
             int memberType = acceptMemberType();
 
             switch (memberType)
