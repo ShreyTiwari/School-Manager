@@ -31,7 +31,7 @@ namespace SchoolManager
 
         private static int acceptChoices()
         {
-            return Util.Console.AskQuestionInt("\n1. Add\n2. Display\n3. Pay\n4. Raise Complaint\nPlease enter the member type: ");
+            return Util.Console.AskQuestionInt("\n1. Add\n2. Display\n3. Pay\n4. Raise Complaint\n5. Student Performance\nPlease enter the member type: ");
         }
 
         private static int acceptMemberType()
@@ -163,6 +163,12 @@ namespace SchoolManager
             Console.WriteLine($"Complaint Raised: {complaint.ComplaintRaised}\n---------");
         }
 
+        private static async Task showPerformance()
+        {
+            double average = await Task.Run(() => Student.averageGrade(Students));
+            Console.WriteLine($"The student average performance is: {average}");
+        }
+
         private static void addData()
         {
             Receptionist = new Receptionist("Receptionist", "address", 123);
@@ -172,12 +178,12 @@ namespace SchoolManager
 
             for (int i = 0; i < 10; i++)
             {
-                Students.Add(new Student(i.ToString(), i.ToString(), i));
+                Students.Add(new Student(i.ToString(), i.ToString(), i, i));
                 Teachers.Add(new Teacher(i.ToString(), i.ToString(), i));
             }
         }
 
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             // Just for manual testing purposes.
             addData();
@@ -205,6 +211,9 @@ namespace SchoolManager
                         break;
                     case 4:
                         RaiseComplaint();
+                        break;
+                    case 5:
+                        await showPerformance();
                         break;
                     default:
                         flag = false;

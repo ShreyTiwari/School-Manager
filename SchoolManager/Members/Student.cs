@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SchoolManager
 {
@@ -22,6 +23,17 @@ namespace SchoolManager
         public void display()
         {
             Console.WriteLine("Name: {0}, Address: {1}, Phone: {2}, Grade: {3}", Name, Address, Phone, Grade);
+        }
+
+        public static double averageGrade(List<Student> students)
+        {
+            double avg = 0;
+            foreach (Student student in students)
+            {
+                avg += student.Grade;
+            }
+
+            return avg / students.Count;
         }
     }
 }
